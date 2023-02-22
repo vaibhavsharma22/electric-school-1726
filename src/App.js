@@ -1,9 +1,13 @@
 import './App.css';
-import Landing from './Components/Landing';
+import Landing from './Pages/Landing';
+import WithSubnavigation from './Components/Navbar';
 
 function App() {
   return (
-   <Landing/>
+  <>
+  <WithSubnavigation />
+  <Landing />
+  </>
   )
 }
 
