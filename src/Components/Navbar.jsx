@@ -1,5 +1,15 @@
+import WHITE from "../Images/WHITE.png"
+import location from "../Images/location.png"
+import user from "../Images/user.png"
+import bag from "../Images/bag.png"
 import {
     Box,
+    HStack,
+    InputGroup,
+    InputLeftElement,
+    InputRightElement,
+    Input,
+    Image,
     Flex,
     Text,
     IconButton,
@@ -14,19 +24,41 @@ import {
     useColorModeValue,
     useBreakpointValue,
     useDisclosure,
+    Center,
   } from '@chakra-ui/react';
   import {
     HamburgerIcon,
     CloseIcon,
     ChevronDownIcon,
     ChevronRightIcon,
+    Search2Icon,
   } from '@chakra-ui/icons';
   
   export default function WithSubnavigation() {
-    const { isOpen, onToggle } = useDisclosure();
+    const {isOpen,onToggle} = useDisclosure();
   
     return (
+      
       <Box>
+          
+         <HStack align='stretch'>
+          <Box boxSize='sm'>
+            <Image src={WHITE} alt='Logo Image' />
+          </Box>
+          <HStack>
+          <InputGroup>
+    <InputLeftElement
+      pointerEvents='none'
+      children={<Search2Icon color='gray.500' />}
+    />
+    <Input type='text' placeholder='Search' />
+    <InputRightElement children={<ChevronDownIcon color='green.500' />} />
+  </InputGroup>
+     <HStack> <Image src={location} alt='Location' /><p>Choose a Store</p></HStack>
+     <HStack> <Image src={user} alt='user' /><p>Account</p></HStack>
+     <HStack> <Image src={bag} alt='bag' /><p>Bag</p></HStack>
+          </HStack>
+         </HStack>
         <Flex
           bg={useColorModeValue('white', 'gray.800')}
           color={useColorModeValue('gray.600', 'white')}
@@ -146,7 +178,7 @@ import {
     );
   };
   
-  const DesktopSubNav = ({ label, href, subLabel },NavItem) => {
+  const DesktopSubNav = ({label, href, subLabel},NavItem) => {
     return (
       <Link
         href={href}
@@ -169,7 +201,7 @@ import {
             transition={'all .3s ease'}
             transform={'translateX(-10px)'}
             opacity={0}
-            _groupHover={{ opacity: '100%', transform: 'translateX(0)' }}
+            _groupHover={{opacity:'100%',transform:'translateX(0)'}}
             justify={'flex-end'}
             align={'center'}
             flex={1}>
@@ -185,7 +217,7 @@ import {
       <Stack
         bg={useColorModeValue('white', 'gray.800')}
         p={4}
-        display={{ md: 'none' }}>
+        display={{md: 'none'}}>
         {NAV_ITEMS.map((navItem) => (
           <MobileNavItem key={navItem.label} {...navItem} />
         ))}
