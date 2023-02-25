@@ -10,6 +10,7 @@ import {
     InputRightElement,
     Input,
     Image,
+
     Flex,
     Text,
     IconButton,
@@ -23,15 +24,14 @@ import {
     PopoverContent,
     useColorModeValue,
     useBreakpointValue,
-    useDisclosure,
-    Center,
+    useDisclosure
   } from '@chakra-ui/react';
   import {
     HamburgerIcon,
     CloseIcon,
     ChevronDownIcon,
     ChevronRightIcon,
-    Search2Icon,
+    Search2Icon
   } from '@chakra-ui/icons';
   
   export default function WithSubnavigation() {
@@ -41,11 +41,11 @@ import {
       
       <Box>
           
-         <HStack align='stretch'>
-          <Box boxSize='sm'>
+         <HStack>
+          <Box boxSize='200px'>
             <Image src={WHITE} alt='Logo Image' />
           </Box>
-          <HStack>
+          <HStack maxH="100px" maxW="500px">
           <InputGroup>
     <InputLeftElement
       pointerEvents='none'
@@ -277,7 +277,7 @@ import {
   
 
   
-  const NAV_ITEMS = [
+const NAV_ITEMS = [
     {
       label: 'Inspiration',
       children: [
